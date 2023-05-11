@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     logging.info('Searching for the news...')
 
-    for page in range(1, NR_PAGES):
+    for page in range(1, NR_PAGES + 1):
         url = f'{BASE_URL}{page}'
         res = requests.get(url, verify=False)
         data = json.loads(res.text)
