@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.INFO,
                     filename=f'{BASE_FILENAME}_{datetime.datetime.now()}.log', 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+
 if __name__ == '__main__':
 
     News = namedtuple('News', ['author', 'summary'])

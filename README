@@ -1,2 +1,6 @@
+# Beautiful Soup (BS4)
 
-Book: Data Scraping and Data Mining from Beginner to Pro with Python - AI Sciences - Packt Publishing
+'''
+pip3 install bs4
+'''
+

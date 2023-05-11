@@ -6,13 +6,14 @@ logging.basicConfig(level=logging.INFO,
                     filename='webscraping.log', 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+AUTHOR_BEGIN = '<span>by <small class="author" itemprop="author">'
+AUTHOR_END = '</small>'
+QUOTE_BEGIN = '<span class="text" itemprop="text">“'
+QUOTE_END = '”</span>'
+URL = 'https://quotes.toscrape.com/'
+
+
 if __name__ == '__main__':
-    
-    AUTHOR_BEGIN = '<span>by <small class="author" itemprop="author">'
-    AUTHOR_END = '</small>'
-    QUOTE_BEGIN = '<span class="text" itemprop="text">“'
-    QUOTE_END = '”</span>'
-    URL = 'https://quotes.toscrape.com/'
 
     quote_author = defaultdict(list)
     try:
