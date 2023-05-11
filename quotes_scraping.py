@@ -3,10 +3,10 @@ from collections import defaultdict
 import logging
 
 logging.basicConfig(level=logging.INFO, 
-                    filename="webscraping.log", 
-                    format="%(asctime)s - %(levelname)s - %(message)s")
+                    filename='webscraping.log', 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     
     AUTHOR_BEGIN = '<span>by <small class="author" itemprop="author">'
     AUTHOR_END = '</small>'
