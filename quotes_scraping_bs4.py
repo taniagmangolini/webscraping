@@ -18,5 +18,6 @@ if __name__ == '__main__':
 
     # search tag span having some attributes
     for tag in soup.findAll('span', {'class': 'text'}):
+        print('available attributes:', tag.attrs)
         print(tag.string)
 
