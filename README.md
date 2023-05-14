@@ -27,6 +27,20 @@ scrapy runspider script.py -o output.json
 ```
 The are many output types supported (json, jsonlines, jl, csv, xml, marshal, pickle).
 
+There are many types of spiders (https://docs.scrapy.org/en/latest/topics/spiders.html). 
+Some examples: 
+
+- Spider (the simplest one)
+
+- CrawlSpider (the most commonly used spider for crawling regular websites)
+
+- XMLFeedSpider
+
+- CSVFeedSpider
+
+- SitemapSpider
+
+
 ## Scrapy Project
 
 For more complex cases you can start a new Scrapy project:
