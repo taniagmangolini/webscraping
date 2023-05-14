@@ -1,5 +1,24 @@
+
 # Beautiful Soup (BS4)
 
+Bs4 is paired with an HTTP client to download pages as it can only parse pages.
+
+```
 pip3 install bs4
+```
+
+# Scrapy 
+
+Scrapy is a full web scraping framework - capable of downloading and parsing pages.
+
+It is better for HTML complex structures as it supports XPath Selectors (XML Path Language).
+
+```
+pip install Scrapy
+```
+
+
+
+
 
 

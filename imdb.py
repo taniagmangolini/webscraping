@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import logging
 from collections import namedtuple
+import re
 
 
 logging.basicConfig(level=logging.INFO, 
@@ -10,7 +11,8 @@ logging.basicConfig(level=logging.INFO,
 
 URL_BASE = 'https://www.imdb.com'
 URL_TOP_MOVIES = f'{URL_BASE}/chart/top'
-Movie = namedtuple('Movie', ['id', 'title', 'rating', 'url', 'genres', 'duration', 'year'])
+Movie = namedtuple('Movie', ['id', 'title', 'rating', 
+                   'url', 'genres', 'duration', 'year'])
 
 
 def parse_top_rated_movie_info(tr):
@@ -43,8 +45,9 @@ def get_top_rated_movie_detail_year(soup):
     ''' Extract year from movies details page.
     '''
     year = None
-    items = soup.findAll('a', {'class': 'ipc-link ipc-link--baseAlt ipc-link--inherit-color',
-                               'role': 'button'})
+    pattern = r'ipc-link.+inherit-color'
+    items = soup.findAll('a', {'class': re.compile(pattern),
+                             'role': 'button'})
     for item in items:
         if 'tt_ov_rdat' in item['href']:
             year = item.string
@@ -56,7 +59,8 @@ def get_top_rated_movie_detail_duration(soup):
     ''' Extract duration from movies details page.
     '''
     duration = None
-    ul_list = soup.findAll('ul', {'class': 'ipc-inline-list ipc-inline-list--show-dividers sc-afe43def-4 kdXikI baseAlt',
+    pattern = r'ipc-inline-list.+baseAlt'
+    ul_list = soup.findAll('ul', {'class': re.compile(pattern),
                                'role': 'presentation'})
     for ul in ul_list:
         for li in ul:
@@ -73,7 +77,8 @@ def get_top_rated_movie_detail(url):
                               AppleWebKit/537.36 (KHTML, like Gecko) \
                               Chrome/102.0.0.0 Safari/537.36'
               }
-    logging.info(f'updating the request headers from {requests.utils.default_headers()} to {headers}')
+    default_headers = requests.utils.default_headers()
+    logging.info(f'updating req. header {default_headers} to {headers}')
 
     logging.info('getting movie details ...')
     request = requests.get(url, headers=headers, verify=False)
