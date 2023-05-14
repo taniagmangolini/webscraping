@@ -1,7 +1,7 @@
 
 # Beautiful Soup (BS4)
 
-Bs4 is paired with an HTTP client to download pages as it can only parse pages.
+Bs4 is paired with an HTTP client (for instance requests) to download pages as it can only parse pages.
 
 ```
 pip3 install bs4
