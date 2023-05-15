@@ -12,10 +12,28 @@ pip3 install bs4
 Scrapy is a full web scraping framework - capable of downloading and parsing pages. 
 It also allows to make requests in a parallel and assynchronous way.
 
-It is better for HTML complex structures as it supports XPath Selectors (XML Path Language).
+It is better for HTML complex structures as it supports XPath Selectors (XML Path Language. Ex. response.xpath(x_path_selector)) as well css selectors (response.css(css_selector).getall())
 
 ```
 pip install scrapy
+```
+
+## Scrapy Shell
+
+The scrapy has a shell for debug that can be accessed by the following command:
+
+```
+python -m scrapy shell
+```
+
+You can use this shell to make requests (fetch(url)) and inspect the response (variable response), test selectors and much more!
+
+Example:
+
+```
+fetch('http://quotes.toscrape.com/tag/humor')
+response.body
+fetch('http://quotes.toscrape.com/tag/humor')
 ```
 
 ## Scrapy Script
