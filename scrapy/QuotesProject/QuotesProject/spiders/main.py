@@ -32,7 +32,7 @@ class QuotesSpyder(scrapy.Spider):
                 'author': quote.xpath('span/small/text()').get(),
                 'author_with_css': quote.css('span small.author::text').get(), # extracts text from spans that have small elements with .author class
                 'text': quote.css('span.text::text').get(), # extracts text from span elements with .text class
-                'tags': quote.css('a.tag::text').getall(), # extracts text from span elements with .tags class
+                'tags': quote.css('a.tag::text').getall(), # extracts text from a  with .tag class
             }
         next_page = response.css('li.next a::attr("href")').get() # next page. Ex. /page/2/
 
