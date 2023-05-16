@@ -20,7 +20,7 @@ class ImdbSpyder(scrapy.Spider):
             url = a.css('::attr("href")').get()
             title = a.css('::text').get()
             meta = {'title': title} # use meta to share data between callbacks
-            yield response.follow(url, callback=self.parse_info, meta=meta)
+            yield response.follow(url, callback=self.parse_info, meta=meta, dont_filter=True)
 
     def parse_info(self, response):
         year = None
