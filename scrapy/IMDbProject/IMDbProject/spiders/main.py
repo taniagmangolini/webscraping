@@ -7,7 +7,7 @@ class ImdbSpyder(scrapy.Spider):
     To run it, execute from inside this project folder: 
                         python -m scrapy crawl imdb
     To output the results to a file:
-                        python -m scrapy crawl imdb -o results.csv
+                        python -m scrapy crawl imdb -o imdb.csv
     """
     name = 'imdb'
     user_agent = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36'
@@ -37,9 +37,13 @@ class ImdbSpyder(scrapy.Spider):
             
             if lis:
                 for li in lis:
-                    href = li.css('a[role="button"]::attr("href")')
-                    if href and 'tt_ov_rdat' in href.get():
+                    if li.xpath('a[contains(@href, "tt_ov_rdat")]'):
                         year = li.css('a[role="button"]::text').get()
                     elif li.css(':last_child'):
                         duration = li.css('::text').get()
-
+            yield {
+                'title': response.meta['title'],
+                'year': year,
+                'duration': duration,
+                'genres': genres
+            }
