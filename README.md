@@ -70,4 +70,19 @@ python  -m scrapy startproject ProjectName
 For instance: python  -m scrapy startproject QuotesProject
 
 
+# Selenium
+
+Automates web browser interaction.
+Selenium uses a browser web driver (https://www.selenium.dev/pt-br/documentation/webdriver/getting_started/install_drivers).
+It is not a specific lib designed for webscraping but can be useful because it supports css selectors and also xpath (https://selenium-python.readthedocs.io/locating-elements.html)
+
+```
+pip3 install -U selenium
+pip3 install webdriver-manager
+```
+
+
+
+
+
 
